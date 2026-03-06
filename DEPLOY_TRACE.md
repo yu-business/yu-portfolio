@@ -128,3 +128,19 @@ User confirmed:
 Conclusion:
 - Deployment target achieved.
 - Site is live on custom domain path.
+
+## Step 11 - Push rejection fix (non-fast-forward)
+Issue reported by user:
+- Shell syntax error due to line break before `|| true`.
+- `git push` rejected: remote had newer commits.
+
+Actions executed:
+1. Checked local status/log.
+2. Fetched remote updates: `git fetch origin`.
+3. Observed divergence: local ahead 1, behind 2.
+4. Rebased local branch on top of remote main: `git rebase origin/main`.
+5. Pushed successfully: `git push origin main`.
+
+Result:
+- Remote `main` updated to commit `d71b6d9`.
+- User update is now published.
