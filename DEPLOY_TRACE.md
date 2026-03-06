@@ -144,3 +144,47 @@ Actions executed:
 Result:
 - Remote `main` updated to commit `d71b6d9`.
 - User update is now published.
+
+## Step 12 - Diagnose browser ERR_CERT_COMMON_NAME_INVALID
+User reported Chrome warning:
+- "Votre connexion n'est pas privee"
+- `net::ERR_CERT_COMMON_NAME_INVALID`
+
+Live checks executed:
+1. DNS resolution for `yunifai.com`:
+   - A: 185.199.108.153 / .109.153 / .110.153 / .111.153
+   - AAAA: 2606:50c0:8000::153 / ::8001::153 / ::8002::153 / ::8003::153
+   => DNS points correctly to GitHub Pages.
+2. DNS for `www.yunifai.com`:
+   - CNAME: `yu-business.github.io.`
+3. TLS certificate served by `yunifai.com:443` currently:
+   - Subject CN: `*.github.io`
+   - SAN: `*.github.com`, `*.github.io`, etc.
+   - DOES NOT include `yunifai.com`.
+4. CAA check:
+   - No restrictive CAA record found.
+
+Interpretation:
+- Routing is correct.
+- Custom certificate issuance/attachment for `yunifai.com` is not active yet on GitHub Pages side.
+
+## Step 13 - URL path migration to /homepage/yhua/
+User request:
+- Change URL from `https://yunifai.com/homepage_yhua/` to `https://yunifai.com/homepage/yhua/`.
+
+Actions executed:
+1. Created nested directory `homepage/yhua/`.
+2. Copied live site files into nested target path:
+   - `homepage/yhua/index.html`
+   - `homepage/yhua/styles.css`
+   - `homepage/yhua/script.js`
+3. Added compatibility redirect from old path:
+   - `homepage_yhua/index.html` -> redirects to `/homepage/yhua/`.
+4. Added helper redirect:
+   - `homepage/index.html` -> redirects to `/homepage/yhua/`.
+5. Updated root redirect:
+   - `/index.html` now redirects to `/homepage/yhua/`.
+
+Expected behavior after deploy:
+- New canonical URL: `https://yunifai.com/homepage/yhua/`
+- Old URL still works and redirects to new URL.

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yu HUA | Backend & Data Engineer</title>
+  <meta name="description" content="Portfolio de Yu HUA, ingénieur backend et data spécialisé en search, architecture et IA appliquée." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" data-i18n="name.brand">YU HUA</a>
+    <div class="topbar-right">
+      <div class="lang-switch" aria-label="Language switcher">
+        <button type="button" class="lang-btn active" data-lang-switch="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang-switch="en">EN</button>
+        <button type="button" class="lang-btn" data-lang-switch="zh">中文</button>
+      </div>
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="#profil" data-i18n="nav.profil">Profil</a>
+        <a href="#experience" data-i18n="nav.experience">Expérience</a>
+        <a href="#education" data-i18n="nav.education">Formation</a>
+        <a href="#skills" data-i18n="nav.skills">Compétences</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero reveal">
+    <p class="tag" data-i18n="hero.tag">Ingénieur Logiciel • Backend & Data</p>
+    <h1 class="hero-name" data-i18n="name.hero">YU HUA</h1>
+    <p class="hero-role" data-i18n="hero.role">Backend Engineer • Search Systems • Data Architecture</p>
+    <p class="intro" data-i18n="hero.intro">
+      Ingénieur logiciel diplômé ENSIMAG, 4+ ans d'expérience en Python/Django.
+      Expertise en architecture, performance, Elasticsearch à forte volumétrie et delivery en production.
+    </p>
+
+    <div class="hero-grid">
+      <article class="metric">
+        <strong>10M+</strong>
+        <p data-i18n="hero.metric1">adresses indexées avec Elasticsearch</p>
+      </article>
+      <article class="metric">
+        <strong>4+</strong>
+        <p data-i18n="hero.metric2">années de backend en contexte exigeant</p>
+      </article>
+      <article class="metric">
+        <strong data-i18n="hero.metric3strong">Paris</strong>
+        <p data-i18n="hero.metric3">poste actuel, résidence au Havre</p>
+      </article>
+    </div>
+
+    <div class="hero-actions">
+      <button class="btn primary" id="open-contact-modal" type="button" data-i18n="hero.contactBtn">Me contacter</button>
+      <a class="btn" href="https://www.linkedin.com/in/yu-hua-68104220b/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </section>
+
+  <section class="ticker" aria-label="Technologies">
+    <div class="track">
+      <span>Python</span>
+      <span>Django</span>
+      <span>Elasticsearch</span>
+      <span>PostgreSQL</span>
+      <span>Docker</span>
+      <span>GitLab CI/CD</span>
+      <span>Kubernetes</span>
+      <span>Linux</span>
+      <span>Python</span>
+      <span>Django</span>
+      <span>Elasticsearch</span>
+      <span>PostgreSQL</span>
+      <span>Docker</span>
+      <span>GitLab CI/CD</span>
+      <span>Kubernetes</span>
+      <span>Linux</span>
+    </div>
+  </section>
+
+  <main>
+    <section class="section reveal" id="profil">
+      <h2 data-i18n="profil.title">Profil</h2>
+      <p data-i18n="profil.body">
+        Ingénieur logiciel backend orienté fiabilité, maintenabilité et performance.
+        J'interviens sur la refonte d'architectures, la modélisation métier (BPMN + données),
+        l'optimisation de pipelines et l'industrialisation complète jusqu'à la mise en production.
+      </p>
+    </section>
+
+    <section class="section reveal" id="experience">
+      <div class="section-head">
+        <h2 data-i18n="experience.title">Expérience</h2>
+        <p data-i18n="experience.subtitle">Focus sur les projets à impact, complexité technique et volumétrie élevée.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="job">
+          <div class="job-head">
+            <h3 data-i18n="experience.sfr.title">Caciis - Mission chez SFR</h3>
+            <span data-i18n="experience.sfr.date">10/2022 - Aujourd'hui</span>
+          </div>
+          <ul>
+            <li data-i18n="experience.sfr.b1">Refonte complète de l'architecture backend pour réduire la duplication et améliorer la maintenabilité.</li>
+            <li data-i18n="experience.sfr.b2">Centralisation et mutualisation des logiques métier via une architecture modulaire et évolutive.</li>
+            <li data-i18n="experience.sfr.b3">Conception et implémentation de nouveaux use cases dans un cadre orienté robustesse et lisibilité.</li>
+            <li data-i18n="experience.sfr.b4">Modélisation des processus métier en BPMN et conception du schéma de base de données associé.</li>
+            <li data-i18n="experience.sfr.b5">Conception d'un moteur Elasticsearch avec indexation de plus de 10 millions d'adresses.</li>
+            <li data-i18n="experience.sfr.b6">Définition des mappings et optimisation de la pertinence des résultats de recherche.</li>
+            <li data-i18n="experience.sfr.b7">Optimisation des requêtes Django ORM et du parsing de données réseau.</li>
+            <li data-i18n="experience.sfr.b8">Contribution à l'industrialisation du projet: automatisation, déploiement et mise en production.</li>
+            <li data-i18n="experience.sfr.b9">Mise en place d'automatisations pour la gestion des ressources serveur (logs, espace disque).</li>
+            <li data-i18n="experience.sfr.b10">Pilotage technique et collaboration client pour la clarification des besoins.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3 data-i18n="experience.voysen.title">Voysen - Stage développement Python/Elasticsearch</h3>
+            <span data-i18n="experience.voysen.date">02/2022 - 08/2022</span>
+          </div>
+          <ul>
+            <li data-i18n="experience.voysen.b1">Conception de bout en bout d'un moteur de recherche Elasticsearch sur plusieurs millions d'enregistrements.</li>
+            <li data-i18n="experience.voysen.b2">Définition des mappings et implémentation des pipelines d'indexation côté Django.</li>
+            <li data-i18n="experience.voysen.b3">Développement d'API de recherche et de filtrage avec focus performance/pertinence.</li>
+            <li data-i18n="experience.voysen.b4">Déploiement et mise en production des services applicatifs.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3 data-i18n="experience.amaz.title">Amaz Consulting - Stage développement web</h3>
+            <span data-i18n="experience.amaz.date">07/2021 - 08/2021</span>
+          </div>
+          <ul>
+            <li data-i18n="experience.amaz.b1">Conception et développement d'une application Django (modèle de données, logique métier, interfaces).</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3 data-i18n="experience.ljk.title">Laboratoire LJK - Stage statistique appliquée</h3>
+            <span data-i18n="experience.ljk.date">06/2019 - 07/2019</span>
+          </div>
+          <ul>
+            <li data-i18n="experience.ljk.b1">Implémentation et analyse d'estimateurs de régression paramétriques et non paramétriques en R.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" id="education">
+      <h2 data-i18n="education.title">Formation & Langues</h2>
+      <div class="split">
+        <article class="panel">
+          <h3 data-i18n="education.eduTitle">Formation</h3>
+          <p data-i18n="education.e1"><strong>ENSIMAG (Grenoble INP)</strong><br />Diplôme d'ingénieur en informatique, spécialisation IA & algorithmes avancés (2019 - 2022)</p>
+          <p data-i18n="education.e2"><strong>Université Grenoble Alpes</strong><br />Licence Mathématiques et Informatique, Mention Très Bien (2017 - 2019)</p>
+        </article>
+
+        <article class="panel">
+          <h3 data-i18n="education.langTitle">Langues</h3>
+          <p data-i18n="education.l1">Français: Courant</p>
+          <p data-i18n="education.l2">Anglais: Niveau professionnel (TOEIC 800)</p>
+          <p data-i18n="education.l3">Chinois: Langue maternelle</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" id="skills">
+      <h2 data-i18n="skills.title">Compétences</h2>
+      <div class="skills">
+        <article class="skill-card">
+          <h3 data-i18n="skills.s1t">Langages</h3>
+          <p data-i18n="skills.s1b">Python (principal), Java, SQL</p>
+        </article>
+        <article class="skill-card">
+          <h3 data-i18n="skills.s2t">Backend</h3>
+          <p data-i18n="skills.s2b">Django API REST, ORM, architecture backend, optimisation de performances</p>
+        </article>
+        <article class="skill-card">
+          <h3 data-i18n="skills.s3t">Data / Search</h3>
+          <p data-i18n="skills.s3b">Elasticsearch (mappings, pertinence), PostgreSQL, pandas</p>
+        </article>
+        <article class="skill-card">
+          <h3 data-i18n="skills.s4t">DevOps</h3>
+          <p data-i18n="skills.s4b">Docker, GitLab CI/CD, Kubernetes (environnement managé), Linux</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer reveal" id="contact">
+    <h2 data-i18n="contact.title">Contact</h2>
+    <p data-i18n="contact.subtitle">Disponible pour des missions backend/data à fort enjeu technique.</p>
+    <p>
+      <a href="mailto:huayubusiness@gmail.com">huayubusiness@gmail.com</a>
+      <span> · </span>
+      <a href="tel:+33641225481">+33 6 41 22 54 81</a>
+      <span> · </span>
+      <a href="https://www.linkedin.com/in/yu-hua-68104220b/" target="_blank" rel="noreferrer">linkedin.com/in/yu-hua-68104220b</a>
+    </p>
+  </footer>
+
+  <div class="modal-backdrop" id="contact-modal" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <div class="modal-head">
+        <h3 id="contact-modal-title" data-i18n="modal.title">Envoyer un message</h3>
+        <button class="close-btn" id="close-contact-modal" type="button" aria-label="Fermer">x</button>
+      </div>
+      <form id="contact-form">
+        <label for="sender-email" data-i18n="modal.emailLabel">Votre e-mail</label>
+        <input id="sender-email" name="sender_email" type="email" placeholder="ex: nom@email.com" data-i18n-placeholder="modal.emailPh" required />
+
+        <label for="sender-message" data-i18n="modal.msgLabel">Votre message</label>
+        <textarea id="sender-message" name="sender_message" rows="6" placeholder="Votre message..." data-i18n-placeholder="modal.msgPh" required></textarea>
+
+        <button class="btn primary modal-submit" type="submit" data-i18n="modal.send">Envoyer</button>
+      </form>
+    </section>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
