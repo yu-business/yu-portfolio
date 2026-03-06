@@ -29,3 +29,102 @@ Verification:
 - Configure DNS at domain provider.
 - Enable Enforce HTTPS and verify URL.
 
+
+## Step 4 - Local git repository setup
+Actions executed:
+1. Created `.gitignore` (ignoring `.idea/`, `.DS_Store`).
+2. Initialized git repository.
+3. Added all files and created initial commit:
+   - Commit: `43d6c46`
+   - Message: `prepare GitHub Pages deploy for yunifai.com/homepage_yhua`
+4. Renamed branch to `main`.
+
+Verification:
+- `git status` shows clean branch `main`.
+
+## Step 5 - Blocked waiting for user-provided platform data
+Required to continue end-to-end deployment:
+1. GitHub username and target repository name (or full repo URL).
+2. Confirmation whether `yunifai.com` currently hosts another website that must remain active.
+3. DNS provider name (Cloudflare/Namecheap/GoDaddy/etc.) and whether user has dashboard access.
+
+## Step 6 - Connect and push to GitHub repository
+User provided:
+- Repo URL: `https://github.com/yu-business/yu-portfolio`
+- Domain status: no existing website to preserve
+- DNS provider: AWS Route 53 (user has console access)
+
+Actions executed:
+1. Added git remote `origin` to repository URL.
+2. Attempted HTTPS push -> failed due non-interactive auth (`could not read Username`).
+3. Switched remote to SSH: `git@github.com:yu-business/yu-portfolio.git`.
+4. Detected local SSH key files exist (`~/.ssh/id_rsa`).
+5. Added GitHub host key into `~/.ssh/known_hosts` using `ssh-keyscan`.
+6. Retried push over SSH -> failed with `Permission denied (publickey)`.
+
+Current blocker:
+- Local SSH key is not authorized on GitHub account/repository yet.
+
+Next required user action:
+- Either add local public key (`~/.ssh/id_rsa.pub`) to GitHub account SSH keys,
+  OR provide HTTPS Personal Access Token flow for push.
+
+## Step 7 - GitHub push after SSH key setup
+User action completed:
+- SSH key added to GitHub account.
+
+Action executed:
+- `git push -u origin main`
+
+Result:
+- Push succeeded.
+- Remote branch `main` created and tracking set.
+
+## Step 8 - Tooling capability check on runner
+Checks executed:
+- `gh` CLI availability -> not installed.
+- `aws` CLI availability -> not installed.
+
+Impact:
+- GitHub Pages settings and Route53 DNS changes cannot be executed directly from this runner.
+- These two parts must be done in web consoles by user.
+
+Required user console actions (now):
+1. GitHub repo `yu-business/yu-portfolio` -> Settings -> Pages
+   - Source: Deploy from a branch
+   - Branch: `main`, Folder: `/ (root)`
+   - Custom domain: `yunifai.com`
+2. Route53 hosted zone `yunifai.com`:
+   - Add A records for `@` to:
+     - 185.199.108.153
+     - 185.199.109.153
+     - 185.199.110.153
+     - 185.199.111.153
+   - Add AAAA records for `@` to:
+     - 2606:50c0:8000::153
+     - 2606:50c0:8001::153
+     - 2606:50c0:8002::153
+     - 2606:50c0:8003::153
+3. Back to GitHub Pages, wait certificate issuance.
+4. Enable `Enforce HTTPS`.
+
+After user confirms completion, run final validation on URLs.
+
+## Step 9 - GitHub Pages domain status reported by user
+User reported GitHub Pages status:
+- Custom domain: `yunifai.com`
+- Status: `DNS valid for primary`
+- Additional warning: `www.yunifai.com is improperly configured` (InvalidDNSError)
+
+Interpretation:
+- Primary target domain `yunifai.com` is correctly configured.
+- Only `www` subdomain is missing or misconfigured.
+- This does NOT block serving from `yunifai.com`.
+
+## Step 10 - Live site verification by user
+User confirmed:
+- `https://yunifai.com/homepage_yhua/` displays the personal webpage successfully.
+
+Conclusion:
+- Deployment target achieved.
+- Site is live on custom domain path.

@@ -106,3 +106,14 @@
    - 对应的完整命令清单
    - 需要新增的配置文件
    - 域名 DNS 记录模板
+   
+---
+
+## 更新后步骤
+  cd /home/yhua/projet/pers/yu-portfolio-2026
+  cp -f homepage_yhua/index.html script.js styles.css homepage_yhua/ 2>/dev/null
+  || true
+  git add .
+  git commit -m "update homepage"
+  git push
+
